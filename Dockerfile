@@ -8,6 +8,7 @@ VOLUME /app/data/
 ENV TZ=Asia/Shanghai
 RUN apk update && \
     apk add curl && \
+    curl -o unidbg-jd-sign-0.0.1-SNAPSHOT.jar -L https://github.com/YYWO/unidbg-jd-sign/releases/download/0.1/unidbg-jd-sign-0.0.1-SNAPSHOT.jar && \
     ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 COPY target/unidbg-jd-sign-0.0.1-SNAPSHOT.jar /app/
