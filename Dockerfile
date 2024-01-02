@@ -6,7 +6,9 @@ WORKDIR /app
 VOLUME /app/data/
 
 ENV TZ=Asia/Shanghai
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+RUN apk update && \
+    apk add curl && \
+    ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 COPY target/unidbg-jd-sign-0.0.1-SNAPSHOT.jar /app/
 COPY jd.apk /app/init/
