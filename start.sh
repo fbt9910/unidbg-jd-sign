@@ -1,4 +1,4 @@
-#!/bin/sh
+!/bin/sh
 set -e
 
 if [ ! -d "/app/data" ]; then
